@@ -1,6 +1,8 @@
 import styled from 'styled-components'
-// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { APIfetchTrandingFilms } from '../Api/API-themoviedborg'
+// import { Link } from './App.styled'
+import { Link } from "react-router-dom"
 
 const Text = styled.h1`
     color: ${p => p.theme.colors.accent};
@@ -10,13 +12,34 @@ const Text = styled.h1`
 `
 export const Home = () => {
 
-    // const [film, setFilm] = useState([]);
-    APIfetchTrandingFilms().then((result) => {
-        console.log(result);
-       console.log(result.data); 
-    })
+    const [film, setFilm] = useState([]);
 
-    return(
+    useEffect(() => {
+        APIfetchTrandingFilms().then((result) => {
+            setFilm(result.data.results)
+            // console.log(result);
+            console.log(result.data);
+        }).catch(error => console.log(error))
+            
+        
+
+    }, []);
+
+    // if (!film) {
+    //     return
+    // }
+  
+
+    return (
+        <>
         <Text>Trending today</Text>
+        <ul>
+                {film.length > 0 && film.map(({title, id})=> (
+                    <li key={id}>
+                        <Link to={`/movies/${id}`}>{title}</Link>
+                    </li>
+                ))} 
+            </ul>
+            </>
         )
 }

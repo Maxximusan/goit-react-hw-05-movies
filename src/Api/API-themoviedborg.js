@@ -13,8 +13,31 @@ const API_KEY = '03903974b6d688f171953b19c8d7c0eb';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 export const APIfetchTrandingFilms = () => {
-  const response = axios.get(
-    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
-  );
+  return axios.get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`);
+};
+
+export const APIsearchMovie = searhQuery => {
+  const response = axios.get(`
+${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searhQuery}&language=en-US&page=1&include_adult=false
+`);
+  return response.data.results;
+};
+
+export const APImovieDetails = id => {
+  return axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`);
+};
+
+export const APImovieCredits = id => {
+  const response = axios.get(`
+${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US
+`);
+  // return response.data.cast;
   return response;
+};
+
+export const APImovieRevievs = id => {
+  const response = axios.get(`
+${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1
+`);
+  return response.data.results;
 };
