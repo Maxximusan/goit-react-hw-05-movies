@@ -28,16 +28,14 @@ export const APImovieDetails = id => {
 };
 
 export const APImovieCredits = id => {
-  const response = axios.get(`
+  return axios.get(`
 ${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US
 `);
-  // return response.data.cast;
-  return response;
 };
 
 export const APImovieRevievs = id => {
   const response = axios.get(`
 ${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1
 `);
-  return response.data.results;
+  return response;
 };

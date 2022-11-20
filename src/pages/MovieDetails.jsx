@@ -1,6 +1,7 @@
 // import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import { TbArrowBigLeft } from "react-icons/tb";
 
 import { APImovieDetails } from '../Api/API-themoviedborg';
 
@@ -19,11 +20,15 @@ export const MovieDetails = () => {
         
     },[movieId])
    
+     const location = useLocation();
+    const backBtn = location.state?.from ?? '/';
     
-
     return (
         <>
             <div>Now showing product with id -  {movieId}</div>
+            <div>
+              <Link to={backBtn}><TbArrowBigLeft size={15} />Back</Link>
+            </div>
             {film && (
                 <div>
                     <div>
@@ -47,7 +52,7 @@ export const MovieDetails = () => {
                     <Link to="cast">Cast</Link>
                 </li>
                 <li>
-                    <Link to="review">Reviews</Link>
+                    <Link to="reviews">Reviews</Link>
                     </li>
                 </ul>
             <Outlet />
