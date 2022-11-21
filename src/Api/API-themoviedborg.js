@@ -17,10 +17,9 @@ export const APIfetchTrandingFilms = () => {
 };
 
 export const APIsearchMovie = searhQuery => {
-  const response = axios.get(`
+  return axios.get(`
 ${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searhQuery}&language=en-US&page=1&include_adult=false
 `);
-  return response.data.results;
 };
 
 export const APImovieDetails = id => {
@@ -34,8 +33,7 @@ ${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US
 };
 
 export const APImovieRevievs = id => {
-  const response = axios.get(`
+  return axios.get(`
 ${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1
 `);
-  return response;
 };
