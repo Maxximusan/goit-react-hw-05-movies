@@ -1,12 +1,13 @@
 // import { useState, useEffect } from 'react';
 import { useParams, Outlet,  } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+
 // import { TbArrowBigLeft } from "react-icons/tb";
 
 import { APImovieDetails } from '../Api/API-themoviedborg';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo'
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
 
     const { movieId } = useParams();
     const [ film, setFilm ] = useState(null)
@@ -27,9 +28,9 @@ export const MovieDetails = () => {
     return (
         <>
             {film && <MovieInfo film={film} />}
-           
+           <Suspense>
             <Outlet />
-            
+           </Suspense>
              {/* <div>Now showing product with id -  {movieId}</div>
             <div>
               <Link to={backBtn}><TbArrowBigLeft size={15} />Back</Link>
@@ -64,3 +65,5 @@ export const MovieDetails = () => {
             </>
     )
 }
+
+export default MovieDetails

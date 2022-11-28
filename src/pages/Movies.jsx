@@ -5,7 +5,7 @@ import { APIsearchMovie } from '../Api/API-themoviedborg'
 import { SearchForm } from 'components/SearchForm/SearchForm'
 import { MovieListAterSearch } from 'components/MovieListAfterSearch/MovieListAfterSearch'
 
-export const Movies = () => {
+const Movies = () => {
     
     // const [value, setValue] = useState('');
     const [film, setFilm] = useState([]);
@@ -81,3 +81,5 @@ export const Movies = () => {
             </>
     )
 }
+
+export default Movies

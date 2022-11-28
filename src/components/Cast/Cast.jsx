@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {APImovieCredits} from '../../Api/API-themoviedborg'
 
-export const Cast = () => {
+const Cast = () => {
 
     
     const { movieId } = useParams();
@@ -23,9 +23,9 @@ export const Cast = () => {
     return (
         <>
             {cast && (
-                <div>
+                <ul>
                     {cast.map(({id, profile_path, name, character}) => (
-                        <div key={id}>
+                        <li key={id}>
                             {profile_path ? (
                             <img src={`https://image.tmdb.org/t/p/w300${profile_path}`} alt={name} />
                             ) : (
@@ -33,11 +33,13 @@ export const Cast = () => {
                                 )}
                         <p>{name}</p>
                         <p>Charaster: {character}</p>
-                        </div>
+                        </li>
                         
                         ))}
-            </div>
+            </ul>
             )}
         </>
     )
 }
+
+export default Cast
