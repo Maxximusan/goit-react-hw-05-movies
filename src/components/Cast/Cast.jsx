@@ -29,7 +29,7 @@ const Cast = () => {
                             {profile_path ? (
                             <img src={`https://image.tmdb.org/t/p/w300${profile_path}`} alt={name} />
                             ) : (
-                            <img src={'http://dummyimage.com/120'} alt={name}/>
+                            <img src={'https://dummyimage.com/120'} alt={name}/>
                                 )}
                         <p>{name}</p>
                         <p>Charaster: {character}</p>
