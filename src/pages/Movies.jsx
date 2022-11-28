@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react'
-import { useSearchParams, Link, useLocation } from 'react-router-dom'
+import { useSearchParams} from 'react-router-dom'
 
 import { APIsearchMovie } from '../Api/API-themoviedborg'
+import { SearchForm } from 'components/SearchForm/SearchForm'
+import { MovieListAterSearch } from 'components/MovieListAfterSearch/MovieListAfterSearch'
 
 export const Movies = () => {
     
-    const [value, setValue] = useState('');
+    // const [value, setValue] = useState('');
     const [film, setFilm] = useState([]);
     const [searchParam, setSearchParam] = useSearchParams();
-    const location = useLocation()
+    // const location = useLocation()
 
     const searchFilm = event => {
         setSearchParam({query: event})
@@ -25,26 +27,28 @@ export const Movies = () => {
         }
    },[searchParam])
 
-    const submitForm = event => {
-        event.preventDefault();
-        if (value.trim() === '') {
+    // const submitForm = event => {
+    //     event.preventDefault();
+    //     if (value.trim() === '') {
             
-            alert('!!!!!');
-            return;
-        }
-        searchFilm(value)
-        setValue('')
-    };
+    //         alert('Your query is empty');
+    //         return;
+    //     }
+    //     searchFilm(value)
+    //     setValue('')
+    // };
 
-    const onInputChange = event => {
-         setValue(event.currentTarget.value.toLowerCase());
-    }
+    // const onInputChange = event => {
+    //      setValue(event.currentTarget.value.toLowerCase());
+    // }
 
 
 
     return (
         <>
-        <form onSubmit={submitForm}>
+            <SearchForm onSearch={searchFilm} />
+            <MovieListAterSearch film={ film } />
+        {/* <form onSubmit={submitForm}>
 
             <button type="submit">Choose a film</button>
             <input
@@ -54,9 +58,9 @@ export const Movies = () => {
                 placeholder="Search films"
                 onChange={onInputChange}
         />
-            </form>
+            </form> */}
             
-            <div>
+            {/* <div>
             {film && film.length > 0
                 ?
                 (
@@ -73,7 +77,7 @@ export const Movies = () => {
                     <p> Please, enter a film title</p>
                 
                     )}
-                </div>
+                </div> */}
             </>
     )
 }

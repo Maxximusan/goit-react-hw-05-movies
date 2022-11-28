@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import { APIfetchTrandingFilms } from '../Api/API-themoviedborg'
 // import { Link } from './App.styled'
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
+import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList'
 
 const Text = styled.h1`
     color: ${p => p.theme.colors.accent};
@@ -33,13 +34,7 @@ export const Home = () => {
     return (
         <>
         <Text>Trending today</Text>
-        <ul>
-                {film.length > 0 && film.map(({title, id})=> (
-                    <li key={id}>
-                        <Link to={`/movies/${id}`}>{title}</Link>
-                    </li>
-                ))} 
-            </ul>
+            <TrendingMoviesList film={ film } />
             </>
         )
 }

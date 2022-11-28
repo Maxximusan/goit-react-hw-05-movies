@@ -1,39 +1,21 @@
-// import { useState, useEffect } from 'react';
-import { useParams, Outlet,  } from 'react-router-dom';
-import { useState, useEffect } from 'react'
-// import { TbArrowBigLeft } from "react-icons/tb";
+import { Link, useLocation } from 'react-router-dom';
+import PropTypes from "prop-types";
 
-import { APImovieDetails } from '../Api/API-themoviedborg';
-import { MovieInfo } from 'components/MovieInfo/MovieInfo'
+import { TbArrowBigLeft } from "react-icons/tb";
 
-export const MovieDetails = () => {
+export const MovieInfo = (props) => {
+    const { film } = props
 
-    const { movieId } = useParams();
-    const [ film, setFilm ] = useState(null)
+         const location = useLocation();
+    const backBtn = location.state?.from ?? '/';
 
-    useEffect(() => {
-        
-        APImovieDetails(movieId).then(result => {
-             setFilm(result.data)
-        // console.log(result);
-        console.log(result.data);
-        }).catch(error => console.log(error))
-        
-    },[movieId])
-   
-    //  const location = useLocation();
-    // const backBtn = location.state?.from ?? '/';
-    
     return (
         <>
-            {film && <MovieInfo film={film} />}
-           
-            <Outlet />
-            
-             {/* <div>Now showing product with id -  {movieId}</div>
+        
             <div>
               <Link to={backBtn}><TbArrowBigLeft size={15} />Back</Link>
             </div>
+
             {film && (
                 <div>
                     <div>
@@ -59,8 +41,11 @@ export const MovieDetails = () => {
                 <li>
                     <Link to="reviews">Reviews</Link>
                     </li>
-                </ul> */}
-            {/* <Outlet /> */}
+            </ul>
             </>
     )
 }
+
+MovieInfo.propTypes = {
+  film: PropTypes.object.isRequired,
+};

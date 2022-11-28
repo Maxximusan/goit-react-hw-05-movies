@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import {APImovieRevievs} from '../Api/API-themoviedborg'
+import {APImovieRevievs} from '../../Api/API-themoviedborg'
 
 export const Reviews = () => { 
     
