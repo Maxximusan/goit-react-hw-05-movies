@@ -1,7 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from "prop-types";
-
 import { TbArrowBigLeft } from "react-icons/tb";
+import * as SC from 'components/MovieInfo/MovieInfo.styled'
+import { Box } from '../Box'
+
 
 export const MovieInfo = (props) => {
     const { film } = props
@@ -11,28 +13,28 @@ export const MovieInfo = (props) => {
 
     return (
         <>
-        
-            <div>
-              <Link to={backBtn}><TbArrowBigLeft size={15} />Back</Link>
-            </div>
+        <Box borderBottom="3px solid #b1a6a6">
+            <SC.ButtonBox>
+              <SC.Link to={backBtn}><TbArrowBigLeft size={15} />Back</SC.Link>
+            </SC.ButtonBox>
 
             {film && (
-                <div>
+                <Box display='flex'>
                     <div>
-                        <img src={`https://image.tmdb.org/t/p/w500${film.poster_path}`} alt={ film.title} />
+                        <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} alt={ film.title} />
                     </div>
-                    <div>
-                        <h1>{film.title}</h1>
-                        <p>User Score: {Math.round(film.vote_average * 10)}%</p>
-                        <h2>Overview</h2>
-                        <p>{film.overview}</p>
-                        <h3>Genres</h3>
-                        <p>{ film.genres.map(genre => genre.name).join(' ')}</p>
-                    </div>
-                </div>
+                    <Box p={4}>
+                        <SC.FilmTitle>{film.title}</SC.FilmTitle>
+                        <SC.FilmText>User Score: {Math.round(film.vote_average * 10)}%</SC.FilmText>
+                        <SC.OverviewTitle>Overview</SC.OverviewTitle>
+                        <SC.OverviewText>{film.overview}</SC.OverviewText>
+                        <SC.GenresTitle >Genres</SC.GenresTitle >
+                        <SC.GenresText>{ film.genres.map(genre => genre.name).join(' ')}</SC.GenresText>
+                    </Box>
+                </Box>
             )}
-
-
+       </Box>
+        <Box borderBottom="3px solid #796f6f">
             <h3> Additional information </h3>
             <ul>
                 <li>
@@ -41,7 +43,8 @@ export const MovieInfo = (props) => {
                 <li>
                     <Link to="reviews">Reviews</Link>
                     </li>
-            </ul>
+             </ul>
+       </Box>
             </>
     )
 }

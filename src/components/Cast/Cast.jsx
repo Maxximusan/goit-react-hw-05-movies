@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {APImovieCredits} from '../../Api/API-themoviedborg'
+import * as SC from 'components/Cast/Cast.styled'
 
 const Cast = () => {
 
@@ -23,20 +24,20 @@ const Cast = () => {
     return (
         <>
             {cast && (
-                <ul>
+                <SC.ActorList>
                     {cast.map(({id, profile_path, name, character}) => (
-                        <li key={id}>
+                        <SC.ActorItem key={id}>
                             {profile_path ? (
-                            <img src={`https://image.tmdb.org/t/p/w300${profile_path}`} alt={name} />
+                            <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} />
                             ) : (
-                            <img src={'https://dummyimage.com/120'} alt={name}/>
+                            <img src={'https://dummyimage.com/200'} alt={name}/>
                                 )}
-                        <p>{name}</p>
-                        <p>Charaster: {character}</p>
-                        </li>
+                        <SC.Name>{name}</SC.Name>
+                        <SC.Charaster>Charaster: {character}</SC.Charaster>
+                        </SC.ActorItem>
                         
                         ))}
-            </ul>
+            </SC.ActorList>
             )}
         </>
     )
