@@ -5,12 +5,7 @@ import {APImovieRevievs} from '../../Api/API-themoviedborg'
 const Reviews = () => { 
     
     const { movieId } = useParams();
-    
-    //  APImovieRevievs(movieId).then(result => {
-    //     console.log(result.data);
-    
-    // })
-    
+   
     const [review, setReview] = useState([]);
     
      useEffect(() => {

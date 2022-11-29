@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
+
 import { APIfetchTrandingFilms } from '../Api/API-themoviedborg'
-// import { Link } from './App.styled'
-// import { Link } from "react-router-dom"
 import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList'
 
 const Text = styled.h1`
@@ -18,19 +17,12 @@ export const Home = () => {
     useEffect(() => {
         APIfetchTrandingFilms().then((result) => {
             setFilm(result.data.results)
-            // console.log(result);
-            console.log(result.data);
+                console.log(result.data);
         }).catch(error => console.log(error))
-            
-        
-
+              
     }, []);
 
-    // if (!film) {
-    //     return
-    // }
-  
-
+   
     return (
         <>
         <Text>Trending today</Text>

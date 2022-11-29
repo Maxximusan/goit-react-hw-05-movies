@@ -7,9 +7,8 @@ gap: 20px;
 `;
 
 export const ActorItem = styled.li`
-    /* text-decoration: none; */
-    list-style: none;
-    /* width: 150px; */
+        list-style: none;
+   
 `;
 
 export const Name = styled.p`

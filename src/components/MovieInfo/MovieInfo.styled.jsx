@@ -4,8 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export const ButtonBox = styled.div`
     display: flex;
-    
-    
+        
 `;
 
 export const Link = styled(NavLink)`

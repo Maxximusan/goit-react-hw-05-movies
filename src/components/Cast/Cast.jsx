@@ -8,10 +8,7 @@ const Cast = () => {
     
     const { movieId } = useParams();
 
-    //  APImovieCredits(movieId).then(result => {
-    //     console.log(result.data.cast);
     
-    // })
     const [cast, setCast] = useState(null);
 
     useEffect(() => {

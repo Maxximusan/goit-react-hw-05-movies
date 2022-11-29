@@ -7,10 +7,10 @@ import { MovieListAterSearch } from 'components/MovieListAfterSearch/MovieListAf
 
 const Movies = () => {
     
-    // const [value, setValue] = useState('');
+   
     const [film, setFilm] = useState([]);
     const [searchParam, setSearchParam] = useSearchParams();
-    // const location = useLocation()
+   
 
     const searchFilm = event => {
         setSearchParam({query: event})
@@ -27,57 +27,13 @@ const Movies = () => {
         }
    },[searchParam])
 
-    // const submitForm = event => {
-    //     event.preventDefault();
-    //     if (value.trim() === '') {
-            
-    //         alert('Your query is empty');
-    //         return;
-    //     }
-    //     searchFilm(value)
-    //     setValue('')
-    // };
-
-    // const onInputChange = event => {
-    //      setValue(event.currentTarget.value.toLowerCase());
-    // }
-
-
+    
 
     return (
         <>
             <SearchForm onSearch={searchFilm} />
-            <MovieListAterSearch film={ film } />
-        {/* <form onSubmit={submitForm}>
-
-            <button type="submit">Choose a film</button>
-            <input
-                type="text"
-                autoComplete="off"
-                 autoFocus
-                placeholder="Search films"
-                onChange={onInputChange}
-        />
-            </form> */}
+            <MovieListAterSearch film={ film } />         
             
-            {/* <div>
-            {film && film.length > 0
-                ?
-                (
-                    <ul>
-                            {film.map(({ title, id }) => (
-                            <li key={id}>
-                             <Link  to={`${id}`} state={{ from: location }}>
-                                   {title}
-                                    </Link>
-                                    </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p> Please, enter a film title</p>
-                
-                    )}
-                </div> */}
             </>
     )
 }
