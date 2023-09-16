@@ -1,32 +1,37 @@
-import styled from 'styled-components'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
-import { APIfetchTrandingFilms } from '../Api/API-themoviedborg'
-import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList'
-
-const Text = styled.h1`
-    color: ${p => p.theme.colors.accent};
-    font-family: ${p => p.theme.fonts.monospace};
-    margin: ${ p => p.theme.space[3]}px;
-    font-size: ${ p => p.theme.fontSizes.l};
-`
+import { APIfetchTrandingFilms } from '../Api/API-themoviedborg';
+import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
+import { Text } from 'pages/Home.styles';
+import { Box } from 'components/Box';
 export const Home = () => {
+  const [film, setFilm] = useState([]);
 
-    const [film, setFilm] = useState([]);
+  useEffect(() => {
+    async function FetchTrendingMovies() {
+      try {
+        const data = await APIfetchTrandingFilms();
+        setFilm(data.data.results);
+        console.log(data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    FetchTrendingMovies();
+    // APIfetchTrandingFilms()
+    //   .then(result => {
+    //     setFilm(result.data.results);
+    //     console.log(result.data);
+    //   })
+    //   .catch(error => console.log(error));
+  }, []);
 
-    useEffect(() => {
-        APIfetchTrandingFilms().then((result) => {
-            setFilm(result.data.results)
-                console.log(result.data);
-        }).catch(error => console.log(error))
-              
-    }, []);
-
-   
-    return (
-        <>
+  return (
+    <>
+      <Box bg="#ff6e6e">
         <Text>Trending today</Text>
-            <TrendingMoviesList film={ film } />
-            </>
-        )
-}
+      </Box>
+      <TrendingMoviesList film={film} />
+    </>
+  );
+};

@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-/* img {
+img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -36,4 +36,4 @@ h6,
 p {
   margin: 0;
   padding: 0;
-} */
+}
