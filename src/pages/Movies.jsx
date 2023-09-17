@@ -5,11 +5,13 @@ import { toast } from 'react-toastify';
 import { APIsearchMovie } from '../Api/API-themoviedborg';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { MovieListAterSearch } from 'components/MovieListAfterSearch/MovieListAfterSearch';
+import { Loader } from 'components/Loader/Loader';
 
 const Movies = () => {
   const [film, setFilm] = useState([]);
   const [searchParam, setSearchParam] = useSearchParams();
   const [isFormSubmit, setIsFormSubmit] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
 
   const searchFilm = event => {
     setSearchParam({ query: event });
@@ -20,9 +22,11 @@ const Movies = () => {
     if (query) {
       APIsearchMovie(query).then(result => {
         if (result.data.results.length === 0 && isFormSubmit) {
+          setIsLoader(false);
           return toast.info('Sorry, not found movies by your request');
         }
         setFilm(result.data.results);
+        setIsLoader(false);
         console.log(result.data);
       });
     }
@@ -30,8 +34,12 @@ const Movies = () => {
 
   return (
     <>
-      <SearchForm onSearch={searchFilm} setIsFormSubmit={setIsFormSubmit} />
-      <MovieListAterSearch film={film} />
+      <SearchForm
+        onSearch={searchFilm}
+        setIsFormSubmit={setIsFormSubmit}
+        setIsLoader={setIsLoader}
+      />
+      {isLoader ? <Loader /> : <MovieListAterSearch film={film} />}
     </>
   );
 };

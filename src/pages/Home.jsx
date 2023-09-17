@@ -4,6 +4,8 @@ import { APIfetchTrandingFilms } from '../Api/API-themoviedborg';
 import { TrendingMoviesList } from 'components/TrendingMoviesList/TrendingMoviesList';
 import { Text } from 'pages/Home.styles';
 import { Box } from 'components/Box';
+import { Loader } from 'components/Loader/Loader';
+
 export const Home = () => {
   const [film, setFilm] = useState([]);
 
@@ -31,7 +33,7 @@ export const Home = () => {
       <Box bg="#ff6e6e">
         <Text>Trending today</Text>
       </Box>
-      <TrendingMoviesList film={film} />
+      {!film ? <Loader /> : <TrendingMoviesList film={film} />}
     </>
   );
 };

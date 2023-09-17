@@ -4,9 +4,8 @@ import { NavLink } from 'react-router-dom';
 export const ButtonBox = styled.div`
   display: flex;
 `;
-
-export const Link = styled(NavLink)`
-  display: inline-flex;
+const Button = `
+display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 8px 16px;
@@ -15,15 +14,22 @@ export const Link = styled(NavLink)`
 
   text-decoration: none;
   color: #20c5c5;
-  background-color: #caffc8;
-
-  /* for dark #242264 */
-  /* for light #f2ff7f  or #ffd8d8*/
+ 
   font-weight: 500;
 
   &:hover {
     color: #ca2c54;
   }
+`;
+
+export const DarkLink = styled(NavLink)`
+  ${Button}
+  background-color: #242264;
+`;
+export const LightLink = styled(NavLink)`
+  ${Button}
+  background-color: #f2ff7f;
+  /* for light #f2ff7f or #ffd8d8;*/
 `;
 
 export const FilmTitle = styled.h2`

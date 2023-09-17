@@ -2,15 +2,14 @@ import styled from 'styled-components';
 
 export const P = styled.p`
   color: ${p => p.theme.colors.primary};
+  height: 100vw;
 `;
 
 export const Gallery = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   grid-gap: 20px;
-  padding-bottom: ${p => p.theme.space[7]}px;
-  /* margin-left: auto;
-  margin-right: auto; */
+  padding-bottom: ${p => p.theme.space[6]}px;
 `;
 export const Li = styled.li`
   /* max-height: 400px; */

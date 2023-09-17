@@ -1,3 +1,4 @@
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
 import * as SC from 'components/MovieListAfterSearch/MovieListAfterSearch.styled';
@@ -10,7 +11,7 @@ export const MovieListAterSearch = props => {
   const location = useLocation();
 
   return (
-    <Box height="100vw">
+    <Box>
       {film && film.length > 0 ? (
         <SC.Gallery>
           {film.map(({ title, id, poster_path }) => (

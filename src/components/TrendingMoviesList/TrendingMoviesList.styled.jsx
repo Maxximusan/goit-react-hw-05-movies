@@ -4,7 +4,7 @@ export const Gallery = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 16px;
-  padding-bottom: ${p => p.theme.space[7]}px;
+  padding-bottom: ${p => p.theme.space[4]}px;
   /* margin-left: auto;
   margin-right: auto; */
 `;

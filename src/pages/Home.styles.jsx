@@ -6,10 +6,6 @@ export const Text = styled.h1`
   /* margin: ${p => p.theme.space[3]}px; */
   font-size: ${p => p.theme.fontSizes.l};
 
-  /* width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   padding: 5px;
   margin-top: 0;
   margin-bottom: 30px;
@@ -18,13 +14,7 @@ export const Text = styled.h1`
   border-radius: 6px;
   text-align: center;
   box-shadow: 0 0 10px 1px #ff0000;
-  /* background-image: repeating-linear-gradient(
-    37deg,
-    #ff6e6e,
-    #fe7359 15px,
-    #fcfcfc 15px,
-    #fcfcfc 30px
-  ); */
+
   background: #fcfcfc;
 
   background: linear-gradient(

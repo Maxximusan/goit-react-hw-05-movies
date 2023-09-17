@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import * as SC from 'components/SearchForm/SerchForm.styled';
 
 export const SearchForm = props => {
-  const { onSearch, setIsFormSubmit } = props;
+  const { onSearch, setIsFormSubmit, setIsLoader } = props;
 
   const [value, setValue] = useState('');
 
@@ -17,6 +17,7 @@ export const SearchForm = props => {
     onSearch(value);
     setValue('');
     setIsFormSubmit(true);
+    setIsLoader(true);
   };
 
   const onInputChange = event => {

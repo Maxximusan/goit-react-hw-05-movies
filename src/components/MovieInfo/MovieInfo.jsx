@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useOutletContext } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { TbArrowBigLeft } from 'react-icons/tb';
 import * as SC from 'components/MovieInfo/MovieInfo.styled';
@@ -7,18 +7,26 @@ import { showPoster } from 'helpers/stubForImage';
 
 export const MovieInfo = props => {
   const { film } = props;
-
+  const [darkTheme] = useOutletContext();
+  // console.log(darkTheme);
   const location = useLocation();
   const backBtn = location.state?.from ?? '/';
-  console.log(location);
+  // console.log(location);
   return (
     <>
       <Box borderBottom="3px solid #b1a6a6">
         <SC.ButtonBox>
-          <SC.Link to={backBtn}>
-            <TbArrowBigLeft size={15} />
-            Back
-          </SC.Link>
+          {darkTheme ? (
+            <SC.DarkLink to={backBtn}>
+              <TbArrowBigLeft size={15} />
+              Back
+            </SC.DarkLink>
+          ) : (
+            <SC.LightLink to={backBtn}>
+              <TbArrowBigLeft size={15} />
+              Back
+            </SC.LightLink>
+          )}
         </SC.ButtonBox>
 
         {film && (

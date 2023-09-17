@@ -43,7 +43,7 @@ export const SharedLayout = () => {
       </Box>
 
       <Suspense fallback={null}>
-        <Outlet />
+        <Outlet context={[darkTheme]} />
       </Suspense>
 
       <ErrorReject />
