@@ -31,9 +31,9 @@ export const MovieInfo = props => {
 
         {film && (
           <Box display="flex">
-            <div>
+            <SC.ImageContainer>
               <img src={showPoster(film.poster_path)} alt={film.title} />
-            </div>
+            </SC.ImageContainer>
             <Box p={4}>
               <SC.FilmTitle>{film.title}</SC.FilmTitle>
               <SC.FilmText>

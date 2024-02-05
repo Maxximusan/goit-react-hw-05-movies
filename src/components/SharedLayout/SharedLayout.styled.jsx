@@ -19,4 +19,14 @@ export const Link = styled(NavLink)`
   &:hover {
     text-decoration: underline;
   }
+
+  @media screen and (min-width: 320px) and (max-width: 359px){
+  font-size: ${p => p.theme.fontSizes.s};
+ 
+  }
+
+  @media screen and (min-width: 360px) and (max-width: 479px){
+  font-size: ${p => p.theme.fontSizes.m};
+ 
+  }
 `;

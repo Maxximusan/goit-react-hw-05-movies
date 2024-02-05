@@ -16,7 +16,7 @@ export const TrendingMoviesList = props => {
       <SC.Gallery>
         {film.length > 0 &&
           film.map(({ title, id, poster_path }) => (
-            <li key={id}>
+            <SC.Li key={id}>
               <Link to={`/movies/${id}`}>
                 <SC.Card>
                   <img
@@ -28,7 +28,7 @@ export const TrendingMoviesList = props => {
                   <SC.Title>{title}</SC.Title>
                 </SC.Card>
               </Link>
-            </li>
+            </SC.Li>
           ))}
       </SC.Gallery>
     </>

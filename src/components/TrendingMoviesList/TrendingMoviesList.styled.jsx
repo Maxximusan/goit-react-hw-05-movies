@@ -7,8 +7,33 @@ export const Gallery = styled.ul`
   padding-bottom: ${p => p.theme.space[4]}px;
   /* margin-left: auto;
   margin-right: auto; */
+  
 `;
+export const Li = styled.li`
 
+
+  @media screen and (min-width: 380px) and (max-width: 647px){
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 720px) and (max-width: 963px){
+    width: 340px;
+    &:nth-child(even){
+      margin-right: auto;
+    }
+    &:nth-child(odd){
+    margin-left: auto;
+  }
+  }
+
+  @media screen and (min-width: 1050px) and (max-width: 1279px){
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`
 export const Card = styled.div`
   display: flex;
   align-items: center;
@@ -24,6 +49,8 @@ export const Card = styled.div`
     box-shadow: 0 0 13px 3px #ff0000;
     transform: scale(1.04);
   }
+
+ 
 `;
 
 export const Title = styled.p`
