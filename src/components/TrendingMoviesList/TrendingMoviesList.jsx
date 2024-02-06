@@ -6,7 +6,7 @@ import { showPoster } from '../../helpers/stubForImage';
 export const TrendingMoviesList = props => {
   const { film } = props;
 
-  console.log(film);
+  // console.log(film);
   if (!film) {
     return;
   }

@@ -13,6 +13,23 @@ export const Gallery = styled.ul`
 `;
 export const Li = styled.li`
   /* max-height: 400px; */
+  @media screen and (min-width: 330px) and (max-width: 491px){
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 615px) and (max-width: 731px){
+    width: 290px;
+    &:nth-child(even){
+      margin-right: auto;
+    }
+    &:nth-child(odd){
+    margin-left: auto;
+  }
+  }
+
+  
 `;
 export const Card = styled.div`
   display: flex;

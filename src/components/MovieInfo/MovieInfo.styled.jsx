@@ -72,7 +72,7 @@ export const FilmText = styled.p`
 
   @media screen and (min-width: 320px) and (max-width: 479px){
   font-size: ${p => p.theme.fontSizes.xs};
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   }
 
   @media screen and (min-width: 480px) and (max-width: 767px){
@@ -97,7 +97,7 @@ export const OverviewText = styled.p`
 
   @media screen and (min-width: 320px) and (max-width: 479px){
   font-size: ${p => p.theme.fontSizes.xs};
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   }
 
   @media screen and (min-width: 480px) and (max-width: 767px){
@@ -122,7 +122,7 @@ export const GenresText = styled.p`
 
   @media screen and (min-width: 320px) and (max-width: 479px){
   font-size: ${p => p.theme.fontSizes.xs};
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   }
 
   @media screen and (min-width: 480px) and (max-width: 767px){

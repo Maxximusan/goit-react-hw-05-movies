@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const ActorList = styled.ul`
-    display: flex;
+    /* display: flex;
 flex-wrap: wrap;
-gap: 20px;
+gap: 20px; */
+display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-gap: 20px;
 `;
 
 export const ActorItem = styled.li`

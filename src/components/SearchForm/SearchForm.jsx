@@ -10,6 +10,7 @@ export const SearchForm = props => {
 
   const submitForm = event => {
     event.preventDefault();
+    
     if (value.trim() === '') {
       toast.warning('Your search-query is empty');
       return;
