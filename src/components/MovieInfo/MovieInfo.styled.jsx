@@ -161,3 +161,12 @@ export const Reviews = styled.li`
   
   }
 `;
+
+
+export const Link = styled(NavLink)`
+   &.active {
+    color: ${p => p.theme.colors.my3};
+    /* box-shadow: 0 0 20px 3px orangered; */
+    text-shadow: 0px 1px 1px red, 0 0 0em red, 0 0 0.2em red;
+  }
+`

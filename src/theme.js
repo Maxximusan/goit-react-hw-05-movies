@@ -11,6 +11,8 @@ export const theme = {
     my: 'orangered',
     h1: '#046844;',
     lightYellow: 'lightyellow',
+    my2: '#ffec09;',
+    my3: '#ff0000'
   },
 
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],

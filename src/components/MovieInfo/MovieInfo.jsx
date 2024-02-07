@@ -1,4 +1,4 @@
-import { Link, useLocation, useOutletContext } from 'react-router-dom';
+import { useLocation, useOutletContext } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { TbArrowBigLeft } from 'react-icons/tb';
 import * as SC from 'components/MovieInfo/MovieInfo.styled';
@@ -53,10 +53,10 @@ export const MovieInfo = props => {
         <SC.AdditionalTitle> Additional information </SC.AdditionalTitle>
         <ul>
           <SC.Cast>
-            <Link to="cast">Cast</Link>
+            <SC.Link to="cast">Cast</SC.Link>
           </SC.Cast>
           <SC.Reviews>
-            <Link to="reviews">Reviews</Link>
+            <SC.Link to="reviews">Reviews</SC.Link>
           </SC.Reviews>
         </ul>
       </Box>
