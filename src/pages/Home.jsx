@@ -14,7 +14,7 @@ export const Home = () => {
       try {
         const data = await APIfetchTrandingFilms();
         setFilm(data.data.results);
-        console.log(data.data);
+        // console.log(data.data);
       } catch (error) {
         console.log(error);
       }

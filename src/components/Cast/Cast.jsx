@@ -13,7 +13,7 @@ const Cast = () => {
     APImovieCredits(movieId)
       .then(result => {
         setCast(result.data.cast);
-        console.log(result.data.cast);
+        // console.log(result.data.cast);
       })
       .catch(error => console.log(error));
   }, [movieId]);

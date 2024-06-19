@@ -14,7 +14,7 @@ const MovieDetails = () => {
       .then(result => {
         setFilm(result.data);
 
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch(error => console.log(error));
   }, [movieId]);

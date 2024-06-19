@@ -12,7 +12,7 @@ const Reviews = () => {
     APImovieRevievs(movieId)
       .then(result => {
         setReview(result.data.results);
-        console.log(result.data.results);
+        // console.log(result.data.results);
       })
       .catch(error => console.log(error));
   }, [movieId]);

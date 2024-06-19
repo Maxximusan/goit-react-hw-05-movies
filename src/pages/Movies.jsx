@@ -27,7 +27,7 @@ const Movies = () => {
         }
         setFilm(result.data.results);
         setIsLoader(false);
-        console.log(result.data);
+        // console.log(result.data);
       });
     }
   }, [searchParam, isFormSubmit]);
